@@ -1,9 +1,20 @@
+:root {
+    --color-1: #2d3645;
+    --color-2: #3d485b;
+    --color-3: #2d2d2d;
+    --color-4: #161a22;
+    --color-5: #0e1115;
+    --color-6: #fff396;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
 }
 #navbar {
+    position: sticky;
+    top: 0;
     width: 100%;
     height: 60px;
     padding: 12px 16px;
@@ -14,7 +25,7 @@ body {
 }
 
 .grey_grad {
-    background: linear-gradient(to bottom, #2d3645, #3d485b, #2d3645);
+    background: linear-gradient(to bottom, var(--color-1), var(--color-2), var(--color-1));
 }
 
 #pwr {
@@ -23,8 +34,8 @@ body {
     height: fit-content;
     padding: 5px;
     display: inline-flex;
-    border-color: #2d2d2d;
-    background-color: #2d2d2d;
+    border-color: var(--color-3);
+    background-color: var(--color-4);
     border-style: solid;
 }
 
@@ -87,13 +98,13 @@ body {
     height: fit-content;
     padding: 5px;
     display: inline-flex;
-    border-color: #2d2d2d;
-    background-color: #2d2d2d;
+    border-color: var(--color-3);
+    background-color: var(--color-3);
     border-style: solid;
 }
 
 #title_text {
-    color: #fff396;
+    color: var(--color-6);
     font-size: 1rem;
 }
 
@@ -106,16 +117,44 @@ body {
 }
 
 .bn {
-    background-color: #2d2d2d;
+    background-color: var(--color-3);
     color: white;
 }
 
+.hidden {
+    display: none;
+}
+
+.flex {
+    display: flex;
+}
+
 #piano {
-    background: #161a22;
+    background: var(--color-4);
     padding: 5% 10% 0.5rem 10%;
     width: 80%;
-    display: flex;
     flex-direction: row;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+#piano.show {
+    display: flex;
+    opacity: 1;
+}
+
+#piano.fade-out {
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
 }
 
 #C {
@@ -136,4 +175,69 @@ body {
     #pwr {
         display: none;
     }
+}
+
+#pian_btn {
+    background-color: var(--color-1);
+    text-decoration: dashed;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    color: var(--color-6);
+    display: inline-flex;
+}
+
+#pian_btn_indicator {
+    position: relative;
+    align-self: center;
+    width: 9px;
+    height: 9px;
+    background-color: grey;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+    transition: all 1s ease;
+}
+
+#pian_btn:hover {
+    background-color: var(--color-5);
+    #pian_btn_indicator {
+        background-color: red;
+        transition: all 0.1s ease;
+    }
+}
+
+#pian_btn:active {
+    background-color: var(--color-5);
+}
+
+body:has(#piano.show) #pian_btn_indicator,
+#piano.show ~ #pian #pian_btn_indicator {
+    background-color: green;
+}
+
+#pian_btn_text {
+    color: var(--color-6);
+}
+
+#pian_btn_drop {
+    margin-left: 0.5rem;
+    
+    position: relative;
+    
+    position: relative;
+    align-self: center;
+}
+
+#intro {
+    padding: 5% 10% 0.5rem 10%;
+    width: 80%;
+    flex-direction: row;
+    transition: opacity 0.5s ease;
+}
+
+#intro_1 {
+    text-align: center;
+    transition: opacity 0.5s ease;
 }

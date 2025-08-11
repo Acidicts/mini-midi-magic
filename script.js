@@ -8,7 +8,6 @@ const noteFrequencies = {
     'D': 293.66,
     'D#': 311.13,
     'E': 329.63,
-    'E#': 329.628,
     'F': 349.23,
     'F#': 369.99,
     'G': 392.00,
@@ -55,4 +54,23 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     });
+});
+
+document.getElementById('pian_btn').addEventListener('click', () => {
+    const piano = document.getElementById('piano');
+    
+    if (piano.classList.contains('hidden')) {
+        // Show piano with fade in
+        piano.classList.remove('hidden');
+        setTimeout(() => {
+            piano.classList.add('show');
+        }, 10);
+    } else {
+        // Hide piano with fade out
+        piano.classList.add('fade-out');
+        setTimeout(() => {
+            piano.classList.remove('show', 'fade-out');
+            piano.classList.add('hidden');
+        }, 500);
+    }
 });
