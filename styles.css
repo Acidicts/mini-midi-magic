@@ -1,11 +1,12 @@
 :root {
-    --color-1: #2d3645;
-    --color-2: #3d485b;
-    --color-3: #2d2d2d;
-    --color-4: #161a22;
-    --color-5: #0e1115;
-    --color-6: #fff396;
+    --color-1: #8EE3F5;
+    --color-2: #B08EA2;
+    --color-3: #3E517A;
+    --color-4: #A8E0FF;
+    --color-5: #70CAD1;
+    --color-6: #00a380;
     --color-7: #00a380;
+    --color-8: #487281;
 }
 
 body {
@@ -33,7 +34,7 @@ body {
 }
 
 .grey_grad {
-    background: linear-gradient(to bottom, var(--color-1), var(--color-2), var(--color-1));
+    background: linear-gradient(to bottom, var(--color-1), var(--color-4), var(--color-1));
 }
 
 #pwr {
@@ -43,7 +44,7 @@ body {
     padding: 5px;
     display: inline-flex;
     border-color: var(--color-3);
-    background-color: var(--color-4);
+    background-color: var(--color-3);
     border-style: solid;
 }
 
@@ -186,14 +187,14 @@ body {
 }
 
 #pian_btn {
-    background-color: var(--color-1);
+    background-color: var(--color-3);
     text-decoration: dashed;
     border: none;
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    color: var(--color-6);
+    color: var(--color-1);
     display: inline-flex;
 }
 
@@ -325,7 +326,7 @@ body:has(#piano.show) #pian_btn_indicator,
 #the_proccess {
     width: 100%;
     height: fit-content;
-    background-color: var(--color-5);
+    background-color: var(--color-8);
 }
 
 #the_proccess_columns {
@@ -337,7 +338,7 @@ body:has(#piano.show) #pian_btn_indicator,
 #the_proccess_title {
     text-align: center;
     padding: 1rem;
-    font-size: 1.5rem;
+    font-size: 3rem;
     font-weight: bold;
     color: white;
 }
@@ -355,13 +356,13 @@ body:has(#piano.show) #pian_btn_indicator,
 .the_proccess_column_div_head {
     text-align: center;
     font-size: 1.2rem;
-    color: white;
+    color: var(--color-3);
 }
 
 .the_proccess_column_div_text {
     text-align: center;
     font-size: 1rem;
-    color: white;
+    color: var(--color-3);
 }
 
 #the_proccess_column_emoji {
@@ -378,7 +379,7 @@ body:has(#piano.show) #pian_btn_indicator,
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-color: var(--color-4);
+    background-color: var(--color-5);
     width: 40%;
     margin: 5rem;
     border-radius: 1rem;
@@ -408,7 +409,7 @@ body:has(#piano.show) #pian_btn_indicator,
 .the_proccess_container {
     width: 95%;
     border-radius: 0.5rem;
-    background-color: var(--color-4);
+    background-color: var(--color-5);
     border: solid 1px white;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
