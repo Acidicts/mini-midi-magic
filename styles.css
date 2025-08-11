@@ -12,6 +12,11 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    
+    font-family: "Google Sans Code", monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
 }
 #navbar {
     position: sticky;
@@ -235,10 +240,12 @@ body:has(#piano.show) #pian_btn_indicator,
 }
 
 #intro {
-    padding: 5% 10% 0.5rem 10%;
+    margin: 5% 10% 0.5rem 10%;
+    padding-bottom: 15px;
     width: 80%;
     flex-direction: row;
     transition: opacity 0.5s ease;
+    border-bottom: solid 1px black;
 }
 
 #intro_1 {
@@ -279,4 +286,152 @@ body:has(#piano.show) #pian_btn_indicator,
 
 #guides_btn_text {
     color: var(--color-6);
+}
+
+#proccess {
+    margin-left: 5%;
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.proccess_container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width : 30%;
+    overflow: auto;
+}
+
+.proccess_heading {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+@media screen and (max-width: 768px) {
+    .proccess_container {
+        width: 100%;
+    }
+
+    #proccess {
+        flex-direction: column;
+    }
+}
+
+#the_proccess {
+    width: 100%;
+    height: fit-content;
+    background-color: var(--color-5);
+}
+
+#the_proccess_columns {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+#the_proccess_title {
+    text-align: center;
+    padding: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+}
+
+.the_proccess_column {
+    width: 45%;
+    flex: 1;
+    padding: 1rem;
+}
+
+.the_proccess_column:last-child {
+    border-right: none;
+}
+
+.the_proccess_column_div_head {
+    text-align: center;
+    font-size: 1.2rem;
+    color: white;
+}
+
+.the_proccess_column_div_text {
+    text-align: center;
+    font-size: 1rem;
+    color: white;
+}
+
+#the_proccess_column_emoji {
+    font-size: 2rem;
+    display: block;
+    margin-top: 1rem;
+    font-size: 3rem;
+    text-align: center;
+}
+
+#proccess_column_1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: var(--color-4);
+    width: 40%;
+    margin: 5rem;
+    border-radius: 1rem;
+    border: solid 1px lightgray;
+    transition: background-color 0.3s ease;
+    transition: transform 0.3s ease;
+    min-height: 300px;
+}
+
+#proccess_column_1:hover {
+    background-color: var(--color-1);
+    transform: scale(1.05);
+    align-content: center;
+}
+
+#the_proccess_column_1_title {
+    text-align: center;
+    margin: 0;
+}
+
+#proccess_column_2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.the_proccess_container {
+    width: 95%;
+    border-radius: 0.5rem;
+    background-color: var(--color-4);
+    border: solid 1px white;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    padding-bottom: 0.5rem;
+    text-align: center;
+}
+
+#the_proccess_arrow {
+    margin-left: 50px;
+    align-self: center;
+    scale: 5;
+    animation: pulse_arrow 1.5s infinite;
+}
+
+@keyframes pulse_arrow {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
