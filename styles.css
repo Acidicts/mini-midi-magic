@@ -218,6 +218,9 @@ body:has(#piano.show) #pian_btn_indicator,
 }
 
 #pian_btn_text {
+    margin-top: 0.1rem;
+    text-align: middle;
+    height: auto;
     color: var(--color-6);
 }
 
