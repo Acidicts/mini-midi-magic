@@ -1,0 +1,21 @@
+:root {
+    --color-1: #2d3645;
+    --color-2: #3d485b;
+    --color-3: #2d2d2d;
+    --color-4: #161a22;
+    --color-5: #0e1115;
+    --color-6: #fff396;
+    --color-7: #00a380;
+}
+
+#home_btn{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    background-color: var(--color-2);
+    color: var(--color-6);
+}

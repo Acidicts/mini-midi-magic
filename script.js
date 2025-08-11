@@ -74,3 +74,11 @@ document.getElementById('pian_btn').addEventListener('click', () => {
         }, 500);
     }
 });
+
+document.getElementById("RSVP").addEventListener("click", function() {
+    window.location.href = "/rsvp";
+});
+
+document.getElementById("guides_btn").addEventListener("click", function() {
+    window.location.href = "/guides";
+});

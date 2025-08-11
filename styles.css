@@ -5,6 +5,7 @@
     --color-4: #161a22;
     --color-5: #0e1115;
     --color-6: #fff396;
+    --color-7: #00a380;
 }
 
 body {
@@ -243,4 +244,39 @@ body:has(#piano.show) #pian_btn_indicator,
 #intro_1 {
     text-align: center;
     transition: opacity 0.5s ease;
+}
+
+#intro_2 {
+    text-align: center;
+    transition: opacity 0.5s ease;
+}
+
+#RSVP {
+    color: var(--color-1);
+    border: solid 1px var(--color-2);
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#RSVP:hover {
+    background-color: var(--color-2);
+}
+
+#guides_btn {
+    background-color: var(--color-1);
+    border: solid 1px var(--color-2);
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#guides_btn:hover {
+    background-color: var(--color-2);
+}
+
+#guides_btn_text {
+    color: var(--color-6);
 }
