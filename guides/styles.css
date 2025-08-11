@@ -37,7 +37,7 @@
     }
 }
 
-#description {
+.description {
     text-align: center;
     align-self: center;
     color: var(--color-4);
