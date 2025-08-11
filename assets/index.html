@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <link rel="icon" type="image/x-icon" href="icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assets Folder - Mini MIDI Magic</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .breadcrumb {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            font-family: 'Courier New', monospace;
+            border-left: 4px solid #667eea;
+        }
+
+        .file-grid {
+            display: grid;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .file-item {
+            display: flex;
+            align-items: center;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid #e9ecef;
+        }
+
+        .file-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            border-color: #667eea;
+        }
+
+        .file-icon {
+            width: 48px;
+            height: 48px;
+            margin-right: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        .file-icon.html {
+            background: linear-gradient(45deg, #e34c26, #f06529);
+        }
+
+        .file-icon.svg {
+            background: linear-gradient(45deg, #ffb13b, #ffa726);
+        }
+
+        .file-icon.css {
+            background: linear-gradient(45deg, #1572b6, #33a9dc);
+        }
+
+        .file-icon.js {
+            background: linear-gradient(45deg, #f7df1e, #f0db4f);
+            color: #333;
+        }
+
+        .file-icon.default {
+            background: linear-gradient(45deg, #6c757d, #495057);
+        }
+
+        .file-info {
+            flex: 1;
+        }
+
+        .file-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.25rem;
+        }
+
+        .file-type {
+            color: #6c757d;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .file-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: #f8f9fa;
+            color: #495057;
+            border: 1px solid #dee2e6;
+        }
+
+        .btn-secondary:hover {
+            background: #e9ecef;
+            border-color: #adb5bd;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .stats-item {
+            text-align: center;
+        }
+
+        .stats-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        .stats-label {
+            font-size: 0.875rem;
+            color: #6c757d;
+            margin-top: 0.25rem;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: #6c757d;
+        }
+
+        .empty-state svg {
+            width: 64px;
+            height: 64px;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 1rem;
+                padding: 1rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .file-item {
+                padding: 1rem;
+            }
+
+            .stats {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📁 Assets </h1>
+        <h3 style="text-align: center;">You Shouldn't be here</h3>
+        <h3 style="text-align: center;">Oh Well...</h3>
+
+        <div class="stats">
+            <div class="stats-item">
+                <div class="stats-value" id="total-files">0</div>
+                <div class="stats-label">Total Files</div>
+            </div>
+            <div class="stats-item">
+                <div class="stats-value" id="file-types">0</div>
+                <div class="stats-label">File Types</div>
+            </div>
+            <div class="stats-item">
+                <div class="stats-value">📄</div>
+                <div class="stats-label">Assets</div>
+            </div>
+        </div>
+
+        <div class="file-grid" id="file-grid">
+            <!-- Files will be dynamically loaded here -->
+        </div>
+
+        <div id="loading" style="text-align: center; padding: 2rem; color: #6c757d;">
+            <div style="font-size: 2rem; margin-bottom: 1rem;">�</div>
+            <p>Loading files...</p>
+        </div>
+
+        <div style="margin-top: 2rem; text-align: center; color: #6c757d; font-size: 0.875rem;">
+            <p>💡 Click "View" to open files in a new tab, or "Download" to save them locally.</p>
+            <p style="margin-top: 0.5rem;">Last updated: <span id="last-updated"></span></p>
+        </div>
+    </div>
+
+    <script>
+        // File type mappings
+        const fileTypes = {
+            'svg': { type: 'SVG Vector Image', icon: 'SVG', class: 'svg' },
+            'png': { type: 'PNG Image', icon: 'PNG', class: 'default' },
+            'jpg': { type: 'JPEG Image', icon: 'JPG', class: 'default' },
+            'jpeg': { type: 'JPEG Image', icon: 'JPG', class: 'default' },
+            'gif': { type: 'GIF Image', icon: 'GIF', class: 'default' },
+            'html': { type: 'HTML Document', icon: 'HTML', class: 'html' },
+            'css': { type: 'CSS Stylesheet', icon: 'CSS', class: 'css' },
+            'js': { type: 'JavaScript File', icon: 'JS', class: 'js' },
+            'json': { type: 'JSON Data', icon: 'JSON', class: 'default' },
+            'txt': { type: 'Text File', icon: 'TXT', class: 'default' },
+            'md': { type: 'Markdown File', icon: 'MD', class: 'default' },
+            'pdf': { type: 'PDF Document', icon: 'PDF', class: 'default' },
+            'ico': { type: 'Icon File', icon: 'ICO', class: 'default' },
+            'woff': { type: 'Web Font', icon: 'FONT', class: 'default' },
+            'woff2': { type: 'Web Font', icon: 'FONT', class: 'default' },
+            'ttf': { type: 'TrueType Font', icon: 'FONT', class: 'default' },
+            'mp3': { type: 'Audio File', icon: '🎵', class: 'default' },
+            'wav': { type: 'Audio File', icon: '🎵', class: 'default' },
+            'mp4': { type: 'Video File', icon: '🎬', class: 'default' },
+            'webm': { type: 'Video File', icon: '🎬', class: 'default' }
+        };
+
+        const potentialFiles = [
+            "icon.svg"
+        ];
+
+        // Function to get file extension
+        function getFileExtension(filename) {
+            return filename.split('.').pop().toLowerCase();
+        }
+
+        // Function to get file type info
+        function getFileTypeInfo(filename) {
+            const ext = getFileExtension(filename);
+            return fileTypes[ext] || { type: 'Unknown File', icon: '📄', class: 'default' };
+        }
+
+        // Function to create file item HTML
+        function createFileItem(filename) {
+            const fileInfo = getFileTypeInfo(filename);
+            return `
+                <div class="file-item">
+                    <div class="file-icon ${fileInfo.class}">
+                        ${fileInfo.icon}
+                    </div>
+                    <div class="file-info">
+                        <div class="file-name">${filename}</div>
+                        <div class="file-type">${fileInfo.type}</div>
+                    </div>
+                    <div class="file-actions">
+                        <a href="./${filename}" class="btn btn-primary" target="_blank">
+                            👁️ View
+                        </a>
+                        <a href="./${filename}" class="btn btn-secondary" download>
+                            💾 Download
+                        </a>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Function to check if file exists
+        async function checkFileExists(filename) {
+            try {
+                const response = await fetch(filename, { method: 'HEAD' });
+                return response.ok;
+            } catch (error) {
+                return false;
+            }
+        }
+
+        // Function to automatically discover and register files
+        async function discoverFiles() {
+            const fileGrid = document.getElementById('file-grid');
+            const loading = document.getElementById('loading');
+            const existingFiles = [];
+
+            // Check each potential file
+            for (const filename of potentialFiles) {
+                // Skip index.html (this current file)
+                if (filename === 'index.html') continue;
+                
+                const exists = await checkFileExists(filename);
+                if (exists) {
+                    existingFiles.push(filename);
+                }
+            }
+
+            // Hide loading indicator
+            loading.style.display = 'none';
+
+            // If no files found, show empty state
+            if (existingFiles.length === 0) {
+                fileGrid.innerHTML = `
+                    <div class="empty-state">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2L2 7v10c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V7l-10-5zM12 4.84L19 8.16V17H5V8.16L12 4.84z"/>
+                        </svg>
+                        <h3>No Files Found</h3>
+                        <p>Add some files to the assets folder to see them listed here.</p>
+                    </div>
+                `;
+            } else {
+                // Create file items for existing files
+                fileGrid.innerHTML = existingFiles.map(createFileItem).join('');
+                
+                // Add hover effects to new items
+                addHoverEffects();
+            }
+
+            // Update statistics
+            updateStats(existingFiles);
+        }
+
+        // Function to add hover effects
+        function addHoverEffects() {
+            document.querySelectorAll('.file-item').forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.borderColor = '#667eea';
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    this.style.borderColor = '#e9ecef';
+                });
+            });
+        }
+
+        // Function to update statistics
+        function updateStats(files) {
+            const fileTypesSet = new Set();
+            
+            files.forEach(filename => {
+                const ext = getFileExtension(filename);
+                fileTypesSet.add(ext);
+            });
+
+            document.getElementById('total-files').textContent = files.length;
+            document.getElementById('file-types').textContent = fileTypesSet.size;
+        }
+
+        // Function to manually add a file to the list (for future use)
+        function addFile(filename) {
+            if (!potentialFiles.includes(filename)) {
+                potentialFiles.push(filename);
+                discoverFiles(); // Re-scan files
+            }
+        }
+
+        // Function to refresh the file list
+        function refreshFiles() {
+            const loading = document.getElementById('loading');
+            loading.style.display = 'block';
+            document.getElementById('file-grid').innerHTML = '';
+            discoverFiles();
+        }
+
+        // Update last updated timestamp
+        document.getElementById('last-updated').textContent = new Date().toLocaleString();
+
+        // Initialize file discovery when page loads
+        window.addEventListener('load', discoverFiles);
+
+        // Add refresh button functionality (if needed)
+        window.refreshFiles = refreshFiles;
+        window.addFile = addFile;
+    </script>
+</body>
+</html>
