@@ -473,6 +473,8 @@ body:has(#piano.show) #pian_btn_indicator,
     background-repeat: repeat;
     width: 80%;
     margin-top: 10%;
+    margin-right: 10%;
+    margin-left: 10%;
     border-radius: 0.5rem;
     border: solid 0.5rem #bd2c40;
     display: flex;
