@@ -1,0 +1,18 @@
+:root {
+    --hc_red : #ec3750;
+    --hc_orange : #ff8c37;
+    --hc_yellow : #f1c40f;
+    --hc_green : #33d6a6;
+    --hc_cyan : #5bc0de;
+    --hc_blue : #338eda;
+    --hc_purple : #a633d6;
+    --hc_muted : #8492a6;
+
+    --hc_red_accent : #ff6b81;
+    --hc_orange_accent : #ff9f43;
+    --hc_yellow_accent : #f1d74f;
+    --hc_green_accent : #5be0b5;
+    --hc_cyan_accent : #7ed3e0;
+    --hc_blue_accent : #5ca0d3;
+    --hc_purple_accent : #b76bd6;
+}

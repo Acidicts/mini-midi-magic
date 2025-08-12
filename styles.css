@@ -7,6 +7,7 @@
     --color-6: #00a380;
     --color-7: #00a380;
     --color-8: #487281;
+    --image_rotation: 0deg;
 }
 
 body {
@@ -21,6 +22,7 @@ body {
     "wdth" 100;
 }
 #navbar {
+    z-index: 1000;
     position: sticky;
     top: 0;
     width: 100%;
@@ -432,4 +434,250 @@ body:has(#piano.show) #pian_btn_indicator,
         transform: scale(1);
         opacity: 1;
     }
+}
+
+
+#kit_title {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 5rem;
+}
+
+.kit_item {
+    width: 200px;
+    height: 250px;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fffef7;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    position: relative;
+    border: 1px solid #e6e6e6;
+}
+
+@media screen and (max-width: 768px) {
+    .kit_item {
+        width: 80%;
+        height: 200px;
+        margin: 0.5rem;
+    }
+    
+}
+
+#kit_content {
+    background: url('assets/kit_background.png');
+    background-repeat: repeat;
+    width: 80%;
+    margin: 10% auto;
+    border-radius: 0.5rem;
+    border: solid 0.5rem #bd2c40;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    min-height: 600px;
+    padding: 3rem 2rem;
+    position: relative;
+}
+
+.kit_image {
+    max-width: 80%;
+    max-height: 120px;
+    object-fit: contain;
+    margin: 1rem 0;
+}
+
+.kit_descriptor {
+    color: var(--color-3);
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-align: center;
+    margin-top: auto;
+}
+
+.kit_pin {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 12px;
+    background-color: white;
+    border: solid 3px black;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+}
+
+.kit_pin_inside {
+    width: 8px;
+    height: 8px;
+    background-color: black;
+    border-radius: 50%;
+    position: absolute;
+    transform: translate(25%, 25%);
+}
+
+.kit_item:hover {
+    transform: scale(1.05) rotate(0deg) !important;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+    border: solid 2px #3E517A;
+    z-index: 5;
+}
+
+@media screen and (min-width: 768px) {
+    .kit_item:nth-child(1) {
+        transform: rotate(-8deg);
+        margin-top: 2rem;
+        margin-left: 1rem;
+    }
+
+    .kit_item:nth-child(2) {
+        transform: rotate(3deg);
+        margin-top: 0.5rem;
+        margin-right: 2rem;
+    }
+
+    .kit_item:nth-child(3) {
+        transform: rotate(-5deg);
+        margin-top: 3rem;
+        margin-left: 0.5rem;
+    }
+
+    .kit_item:nth-child(4) {
+        transform: rotate(7deg);
+        margin-top: 1rem;
+        margin-right: 1.5rem;
+    }
+
+    .kit_item:nth-child(5) {
+        transform: rotate(-3deg);
+        margin-top: 2.5rem;
+        margin-left: 2rem;
+    }
+
+    .kit_item:nth-child(6) {
+        transform: rotate(6deg);
+        margin-top: 0.8rem;
+        margin-right: 0.8rem;
+    }
+
+    .kit_item:nth-child(7) {
+        transform: rotate(-7deg);
+        margin-top: 1.8rem;
+        margin-left: 1.2rem;
+    }
+
+}
+
+.kit_item:nth-child(1) .kit_pin {
+    border-color: var(--hc_orange);
+}
+.kit_item:nth-child(2) .kit_pin {
+    border-color: var(--hc_blue);
+}
+.kit_item:nth-child(3) .kit_pin {
+    border-color: var(--hc_yellow);
+}
+.kit_item:nth-child(4) .kit_pin {
+    border-color: var(--hc_green);
+}
+.kit_item:nth-child(5) .kit_pin {
+    border-color: var(--hc_cyan);
+}
+.kit_item:nth-child(6) .kit_pin {
+    border-color: var(--hc_red);
+}
+.kit_item:nth-child(7) .kit_pin {
+    border-color: var(--hc_purple);
+}
+
+.kit_item:nth-child(1) .kit_pin:hover {
+    border-color: var(--hc_orange_accent);
+}
+.kit_item:nth-child(2) .kit_pin:hover {
+    border-color: var(--hc_blue_accent);
+}
+.kit_item:nth-child(3) .kit_pin:hover {
+    border-color: var(--hc_yellow_accent);
+}
+.kit_item:nth-child(4) .kit_pin:hover {
+    border-color: var(--hc_green_accent);
+}
+.kit_item:nth-child(5) .kit_pin:hover {
+    border-color: var(--hc_cyan_accent);
+}
+.kit_item:nth-child(6) .kit_pin:hover {
+    border-color: var(--hc_red_accent);
+}
+.kit_item:nth-child(7) .kit_pin:hover {
+    border-color: var(--hc_purple_accent);
+}
+
+.kit_item:nth-child(1) .kit_pin_inside {
+    background-color: var(--hc_orange);
+}
+.kit_item:nth-child(2) .kit_pin_inside {
+    background-color: var(--hc_blue);
+}
+.kit_item:nth-child(3) .kit_pin_inside {
+    background-color: var(--hc_yellow);
+}
+.kit_item:nth-child(4) .kit_pin_inside {
+    background-color: var(--hc_green);
+}
+.kit_item:nth-child(5) .kit_pin_inside {
+    background-color: var(--hc_cyan);
+}
+.kit_item:nth-child(6) .kit_pin_inside {
+    background-color: var(--hc_red);
+}
+.kit_item:nth-child(7) .kit_pin_inside {
+    background-color: var(--hc_purple);
+}
+
+@keyframes rainbow {
+    0% {
+        border-image: linear-gradient(0deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3) 1;
+    }
+    25% {
+        border-image: linear-gradient(90deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3) 1;
+    }
+    50% {
+        border-image: linear-gradient(180deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3) 1;
+    }
+    75% {
+        border-image: linear-gradient(270deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3) 1;
+    }
+    100% {
+        border-image: linear-gradient(360deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3) 1;
+    }
+    
+}
+
+.kit_item:nth-child(1):hover {
+    border: solid 4px var(--hc_orange_accent)
+}
+.kit_item:nth-child(2):hover {
+    border: solid 4px var(--hc_blue_accent);
+}
+.kit_item:nth-child(3):hover {
+    border: solid 4px var(--hc_yellow_accent);
+}
+.kit_item:nth-child(4):hover {
+    border: solid 4px var(--hc_green_accent);
+}
+.kit_item:nth-child(5):hover {
+    border: solid 4px var(--hc_cyan_accent);
+}
+.kit_item:nth-child(6):hover {
+    border: solid 4px var(--hc_red_accent);
+}
+.kit_item:nth-child(7):hover {
+    border: solid 4px var(--hc_purple_accent);
 }
