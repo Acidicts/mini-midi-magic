@@ -463,7 +463,6 @@ body:has(#piano.show) #pian_btn_indicator,
 @media screen and (max-width: 768px) {
     .kit_item {
         width: 80%;
-        height: 200px;
         margin: 0.5rem;
     }
     
@@ -498,6 +497,7 @@ body:has(#piano.show) #pian_btn_indicator,
     font-weight: 600;
     text-align: center;
     margin-top: auto;
+    transition: all 0.3s ease;
 }
 
 .kit_pin {
@@ -680,4 +680,28 @@ body:has(#piano.show) #pian_btn_indicator,
 }
 .kit_item:nth-child(7):hover {
     border: solid 4px var(--hc_purple_accent);
+}
+
+.kit_description {
+    font-size: 0.8rem;
+    color: var(--hc_grey);
+    font-family: monospace;
+}
+
+#i2c_dac_board:hover {
+    font-weight: 700;
+}
+
+#i2c_dac_board_container:hover #i2c_dac_board_info {
+    display: block;
+    float: right;
+}
+
+#i2c_dac_board_info {
+    display: none;
+    position: absolute;
+    translate: 75% -175%;
+    background-color: var(--color-1);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
 }
